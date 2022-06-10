@@ -1,6 +1,16 @@
 "use strict";
 
-const gulp = require("gulp");
+var gulp        = require('gulp');
+var deploy      = require('gulp-gh-pages');
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
+
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
